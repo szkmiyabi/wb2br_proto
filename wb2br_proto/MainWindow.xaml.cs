@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Microsoft.Web.WebView2.Core;
+using Microsoft.Web.WebView2.Wpf;
+
 namespace wb2br_proto
 {
     /// <summary>
@@ -20,9 +23,23 @@ namespace wb2br_proto
     /// </summary>
     public partial class MainWindow : Window
     {
+        //メンバ
+        bool _isNavigating = false;
+
+        //コンストラクタ
         public MainWindow()
         {
             InitializeComponent();
+            AttachControlEventHandlers(webView);
+        }
+
+        //初期ロード時イベント紐付け（ラッパー）
+        void AttachControlEventHandlers(WebView2 control)
+        {
+            //control.NavigationStarting +=
+            //control.NavigationCompleted +=
+            //control.CoreWebView2InitializationCompleted +=
+            //control.KeyDown +=
         }
     }
 }
