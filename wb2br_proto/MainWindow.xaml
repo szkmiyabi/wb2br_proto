@@ -3,10 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
         xmlns:local="clr-namespace:wb2br_proto"
         mc:Ignorable="d"
+        x:Name="MyWindow"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Window.Resources>
+    </Window.Resources>
+    <Window.CommandBindings>
+    </Window.CommandBindings>
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <Button DockPanel.Dock="Left" Command="">Back</Button>
+            <Button DockPanel.Dock="Left" Command="">Forword</Button>
+            <Button DockPanel.Dock="Left" Command="">Refresh</Button>
+            <Button DockPanel.Dock="Left" Command="">Stop</Button>
+            <Button DockPanel.Dock="Right" Command="">Go</Button>
+            <TextBox x:Name="url" Text="">
+                <TextBox.InputBindings>
+                </TextBox.InputBindings>
+            </TextBox>
+        </DockPanel>
+        <Grid x:Name="Layout">
+            <!--<Grid.Background></Grid.Background>-->
+            <wv2:WebView2
+                x:Name="webView"
+                Source="https://google.co.jp/"
+             />
+        </Grid>
+    </DockPanel>
 </Window>
