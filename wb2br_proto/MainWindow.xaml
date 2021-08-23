@@ -10,17 +10,25 @@
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
     </Window.Resources>
+    
     <Window.CommandBindings>
+        <CommandBinding Command="NavigationCommands.BrowseBack" Executed="BackCmdExecuted" CanExecute="BackCmdCanExecute"/>
+        <CommandBinding Command="NavigationCommands.BrowseForward" Executed="ForwardCmdExecuted" CanExecute="ForwardCmdCanExecute"/>
+        <CommandBinding Command="NavigationCommands.Refresh" Executed="RefreshCmdExecuted" CanExecute="RefreshCmdCanExecute"/>
+        <CommandBinding Command="NavigationCommands.BrowseStop" Executed="BrowseStopCmdExecuted" CanExecute="BrowseStopCmdCanExecute"/>
+        <CommandBinding Command="NavigationCommands.GoToPage" Executed="GoToPageCmdExecuted" CanExecute="GoToPageCmdCanExecute"/>
     </Window.CommandBindings>
+    
     <DockPanel>
         <DockPanel DockPanel.Dock="Top">
-            <Button DockPanel.Dock="Left" Command="">Back</Button>
-            <Button DockPanel.Dock="Left" Command="">Forword</Button>
-            <Button DockPanel.Dock="Left" Command="">Refresh</Button>
-            <Button DockPanel.Dock="Left" Command="">Stop</Button>
-            <Button DockPanel.Dock="Right" Command="">Go</Button>
-            <TextBox x:Name="url" Text="">
+            <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseBack">Back</Button>
+            <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseForward">Forword</Button>
+            <Button DockPanel.Dock="Left" Command="NavigationCommands.Refresh">Refresh</Button>
+            <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseStop">Stop</Button>
+            <Button DockPanel.Dock="Right" Command="NavigationCommands.GoToPage" CommandParameter="{Binding ElementName=url,Path=Text}">Go</Button>
+            <TextBox x:Name="url" Text="{Binding ElementName=webView,Path=Source,Mode=OneWay}">
                 <TextBox.InputBindings>
+                    <KeyBinding Key="Return" Command="NavigationCommands.GoToPage" CommandParameter="{Binding ElementName=url,Path=Text}"/>
                 </TextBox.InputBindings>
             </TextBox>
         </DockPanel>
