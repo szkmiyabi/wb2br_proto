@@ -31,6 +31,8 @@ namespace wb2br_proto
 
         public static RoutedCommand LoadFile = new RoutedCommand();
         public static RoutedCommand UrlComboBoxChanged = new RoutedCommand();
+        public static RoutedCommand UrlNext = new RoutedCommand();
+        public static RoutedCommand UrlPrev = new RoutedCommand();
 
         //コンストラクタ
         public MainWindow()
@@ -48,6 +50,35 @@ namespace wb2br_proto
             control.NavigationCompleted += WebView_NavigationCompleted;
             //control.CoreWebView2InitializationCompleted +=
             //control.KeyDown +=
+        }
+
+        //Nextボタンの実行可否
+        void UrlNextCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = _urlEntities.Count<UrlEntity>() > 0 && 
+                urlComboBox.SelectedIndex < (_urlEntities.Count<UrlEntity>() - 1);
+        }
+
+        //Nextボタンの実行処理
+        void UrlNextExecuted(object target, ExecutedRoutedEventArgs e)
+        {
+            int crIndex = urlComboBox.SelectedIndex;
+            crIndex++;
+            urlComboBox.SelectedIndex = crIndex;
+        }
+
+        //Prevボタンの実行可否
+        void UrlPrevCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = _urlEntities.Count<UrlEntity>() > 0 && urlComboBox.SelectedIndex > 0;
+        }
+
+        //Prevボタンの実行処理
+        void UrlPrevExecuted(object target, ExecutedRoutedEventArgs e)
+        {
+            int crIndex = urlComboBox.SelectedIndex;
+            crIndex--;
+            urlComboBox.SelectedIndex = crIndex;
         }
 
         //Loadボタンの実行可否
@@ -75,6 +106,9 @@ namespace wb2br_proto
         //UrlComboBoxChangedアクションの実行処理
         async void UrlComboBoxChangedExecute(object target, ExecutedRoutedEventArgs e)
         {
+            //UrlComboBoxが初期化された場合はリターン
+            if (urlComboBox.SelectedIndex == -1) return;
+
             var crUrl = _urlEntities[urlComboBox.SelectedIndex].pageUrl;
             await webView.EnsureCoreWebView2Async();
             webView.CoreWebView2.Navigate(crUrl);

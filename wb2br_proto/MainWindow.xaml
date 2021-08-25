@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:wb2br_proto"
         mc:Ignorable="d"
         x:Name="MyWindow"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="750" Width="1200">
     <Window.Resources>
     </Window.Resources>
     
@@ -20,15 +20,15 @@
         <CommandBinding Command="NavigationCommands.GoToPage" Executed="GoToPageCmdExecuted" CanExecute="GoToPageCmdCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.LoadFile}" Executed="LoadFileCmdExecuted" CanExecute="LoadFileCmdCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.UrlComboBoxChanged}" Executed="UrlComboBoxChangedExecute" CanExecute="UrlComboBoxChangedCanExecute"/>
+        <CommandBinding Command="{x:Static local:MainWindow.UrlPrev}" Executed="UrlPrevExecuted" CanExecute="UrlPrevCanExecute"/>
+        <CommandBinding Command="{x:Static local:MainWindow.UrlNext}" Executed="UrlNextExecuted" CanExecute="UrlNextCanExecute"/>
     </Window.CommandBindings>
     
     <DockPanel>
         <DockPanel DockPanel.Dock="Top">
-            <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseBack">Back</Button>
-            <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseForward">Forword</Button>
-            <Button DockPanel.Dock="Left" Command="NavigationCommands.Refresh">Refresh</Button>
-            <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseStop">Stop</Button>
             <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.LoadFile}">Load</Button>
+            <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.UrlPrev}">Prev</Button>
+            <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.UrlNext}">Next</Button>
             <ComboBox x:Name="urlComboBox"
                       SelectedValuePath="pageId"
                       DisplayMemberPath="pageId">
@@ -38,12 +38,19 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </ComboBox>
-            <Button DockPanel.Dock="Right" Command="NavigationCommands.GoToPage" CommandParameter="{Binding ElementName=url,Path=Text}">Go</Button>
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                <Button DockPanel.Dock="Left" Command="NavigationCommands.GoToPage" CommandParameter="{Binding ElementName=url,Path=Text}">Go</Button>
+                <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseBack">Back</Button>
+                <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseForward">Forword</Button>
+                <Button DockPanel.Dock="Left" Command="NavigationCommands.Refresh">Refresh</Button>
+                <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseStop">Stop</Button>
+            </StackPanel>
             <TextBox x:Name="url" Text="{Binding ElementName=webView,Path=Source,Mode=TwoWay}">
                 <TextBox.InputBindings>
                     <KeyBinding Key="Return" Command="NavigationCommands.GoToPage" CommandParameter="{Binding ElementName=url,Path=Text}"/>
                 </TextBox.InputBindings>
             </TextBox>
+
         </DockPanel>
         <Grid x:Name="Layout">
             <!--<Grid.Background></Grid.Background>-->
