@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,10 @@ namespace wb2br_proto
         //メンバ
         bool _isNavigating = false;
 
+        private ObservableCollection<UrlEntity> _urlEntities = new ObservableCollection<UrlEntity>();
+
+        public static RoutedCommand LoadFile = new RoutedCommand();
+        public static RoutedCommand UrlComboBoxChanged = new RoutedCommand();
 
         //コンストラクタ
         public MainWindow()
@@ -43,6 +48,37 @@ namespace wb2br_proto
             control.NavigationCompleted += WebView_NavigationCompleted;
             //control.CoreWebView2InitializationCompleted +=
             //control.KeyDown +=
+        }
+
+        //Loadボタンの実行可否
+        void LoadFileCmdCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        //Loadボタンの実行処理
+        void LoadFileCmdExecuted(object target, ExecutedRoutedEventArgs e)
+        {
+            _urlEntities = new ObservableCollection<UrlEntity>();
+            FileRepository fr = new FileRepository();
+            _urlEntities = fr.GetUrlEntities();
+            urlComboBox.ItemsSource = _urlEntities;
+            urlComboBox.SelectedIndex = 0;
+        }
+
+        //UrlComboBoxChangedアクションの実行可否
+        void UrlComboBoxChangedCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = _urlEntities.Count<UrlEntity>() > 0;
+        }
+
+        //UrlComboBoxChangedアクションの実行処理
+        async void UrlComboBoxChangedExecute(object target, ExecutedRoutedEventArgs e)
+        {
+            var crUrl = _urlEntities[urlComboBox.SelectedIndex].pageUrl;
+            await webView.EnsureCoreWebView2Async();
+            webView.CoreWebView2.Navigate(crUrl);
+            url.Text = crUrl;
         }
 
         //webViewインスタンスの有効判定

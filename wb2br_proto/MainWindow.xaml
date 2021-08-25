@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:wb2br_proto"
         mc:Ignorable="d"
         x:Name="MyWindow"
@@ -17,6 +18,8 @@
         <CommandBinding Command="NavigationCommands.Refresh" Executed="RefreshCmdExecuted" CanExecute="RefreshCmdCanExecute"/>
         <CommandBinding Command="NavigationCommands.BrowseStop" Executed="BrowseStopCmdExecuted" CanExecute="BrowseStopCmdCanExecute"/>
         <CommandBinding Command="NavigationCommands.GoToPage" Executed="GoToPageCmdExecuted" CanExecute="GoToPageCmdCanExecute"/>
+        <CommandBinding Command="{x:Static local:MainWindow.LoadFile}" Executed="LoadFileCmdExecuted" CanExecute="LoadFileCmdCanExecute"/>
+        <CommandBinding Command="{x:Static local:MainWindow.UrlComboBoxChanged}" Executed="UrlComboBoxChangedExecute" CanExecute="UrlComboBoxChangedCanExecute"/>
     </Window.CommandBindings>
     
     <DockPanel>
@@ -25,8 +28,18 @@
             <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseForward">Forword</Button>
             <Button DockPanel.Dock="Left" Command="NavigationCommands.Refresh">Refresh</Button>
             <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseStop">Stop</Button>
+            <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.LoadFile}">Load</Button>
+            <ComboBox x:Name="urlComboBox"
+                      SelectedValuePath="pageId"
+                      DisplayMemberPath="pageId">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{x:Static local:MainWindow.UrlComboBoxChanged}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
             <Button DockPanel.Dock="Right" Command="NavigationCommands.GoToPage" CommandParameter="{Binding ElementName=url,Path=Text}">Go</Button>
-            <TextBox x:Name="url" Text="{Binding ElementName=webView,Path=Source,Mode=OneWay}">
+            <TextBox x:Name="url" Text="{Binding ElementName=webView,Path=Source,Mode=TwoWay}">
                 <TextBox.InputBindings>
                     <KeyBinding Key="Return" Command="NavigationCommands.GoToPage" CommandParameter="{Binding ElementName=url,Path=Text}"/>
                 </TextBox.InputBindings>
