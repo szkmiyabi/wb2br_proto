@@ -181,6 +181,14 @@ namespace wb2br_proto
             await webView.ExecuteScriptAsync(PresvUtil.super_focus());
         }
 
+        //wai-ariaシミュレーション
+        public static RoutedCommand SimAriaAttr = new RoutedCommand();
+
+        async void SimAriaAttrExecute(object sender, ExecutedRoutedEventArgs e)
+        {
+            await webView.ExecuteScriptAsync(PresvUtil.wai_aria_attr());
+        }
+
         //全シミュレーションの実行可否
         void SimAllCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {

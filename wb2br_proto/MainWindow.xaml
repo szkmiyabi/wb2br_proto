@@ -30,6 +30,7 @@
         <CommandBinding Command="{x:Static local:MainWindow.SimLabelTitleAttr}" Executed="SimLabelTitleAttrExecute" CanExecute="SimAllCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.SimDocLink}" Executed="SimDocLinkExecute" CanExecute="SimAllCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.SimSuperFocus}" Executed="SimSuperFocusExecute" CanExecute="SimAllCanExecute"/>
+        <CommandBinding Command="{x:Static local:MainWindow.SimAriaAttr}" Executed="SimAriaAttrExecute" CanExecute="SimAllCanExecute"/>
     </Window.CommandBindings>
     
     <DockPanel>
@@ -114,7 +115,7 @@
                     <Image Source="{StaticResource SuperFocusIcon}"/>
                 </Button>
                 
-                <Button Grid.Column="8">
+                <Button Grid.Column="8" Command="{x:Static local:MainWindow.SimAriaAttr}">
                     <Image Source="{StaticResource AriaAttrIcon}"/>
                 </Button>
                 
