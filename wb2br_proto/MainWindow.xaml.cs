@@ -149,6 +149,14 @@ namespace wb2br_proto
             await webView.ExecuteScriptAsync(PresvUtil.semantic_check());
         }
 
+        //lang属性シミュレーション
+        public static RoutedCommand SimLangAttr = new RoutedCommand();
+
+        async void SimLangAttrExecute(object sender, ExecutedRoutedEventArgs e)
+        {
+            await webView.ExecuteScriptAsync(PresvUtil.lang_attr());
+        }
+
         //全シミュレーションの実行可否
         void SimAllCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
