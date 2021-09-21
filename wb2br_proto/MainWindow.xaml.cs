@@ -131,7 +131,14 @@ namespace wb2br_proto
         async void SimImageAltExecute(object sender, ExecutedRoutedEventArgs e)
         {
             await webView.ExecuteScriptAsync(PresvUtil.image_alt());
+        }
 
+        //Target属性シミュレーション
+        public static RoutedCommand SimTargetBlank = new RoutedCommand();
+
+        async void SimTargetBlankExecute(object sender, ExecutedRoutedEventArgs e)
+        {
+            await webView.ExecuteScriptAsync(PresvUtil.target_attr());
         }
 
         //全シミュレーションの実行可否

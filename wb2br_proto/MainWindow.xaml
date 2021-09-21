@@ -24,6 +24,7 @@
         <CommandBinding Command="{x:Static local:MainWindow.UrlNext}" Executed="UrlNextExecuted" CanExecute="UrlNextCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.SimCssCut}" Executed="SimCssCutExecute" CanExecute="SimAllCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.SimImageAlt}" Executed="SimImageAltExecute" CanExecute="SimAllCanExecute"/>
+        <CommandBinding Command="{x:Static local:MainWindow.SimTargetBlank}" Executed="SimTargetBlankExecute" CanExecute="SimAllCanExecute"/>
     </Window.CommandBindings>
     
     <DockPanel>
@@ -84,7 +85,7 @@
                     <Image Source="{StaticResource ImageAltIcon}"/>
                 </Button>
                 
-                <Button Grid.Column="2">
+                <Button Grid.Column="2" Command="{x:Static local:MainWindow.SimTargetBlank}">
                     <Image Source="{StaticResource TargetBlankIcon}"/>
                 </Button>
                 
