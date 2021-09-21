@@ -25,6 +25,7 @@
         <CommandBinding Command="{x:Static local:MainWindow.SimCssCut}" Executed="SimCssCutExecute" CanExecute="SimAllCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.SimImageAlt}" Executed="SimImageAltExecute" CanExecute="SimAllCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.SimTargetBlank}" Executed="SimTargetBlankExecute" CanExecute="SimAllCanExecute"/>
+        <CommandBinding Command="{x:Static local:MainWindow.SimStruct}" Executed="SimStructExecute" CanExecute="SimAllCanExecute"/>
     </Window.CommandBindings>
     
     <DockPanel>
@@ -101,7 +102,7 @@
                     <Image Source="{StaticResource LabelTitleIcon}"/>
                 </Button> 
                 
-                <Button Grid.Column="6">
+                <Button Grid.Column="6" Command="{x:Static local:MainWindow.SimStruct}">
                     <Image Source="{StaticResource StructIcon}"/>
                 </Button>
                 

@@ -141,6 +141,14 @@ namespace wb2br_proto
             await webView.ExecuteScriptAsync(PresvUtil.target_attr());
         }
 
+        //Structシミュレーション
+        public static RoutedCommand SimStruct = new RoutedCommand();
+
+        async void SimStructExecute(object sender, ExecutedRoutedEventArgs e)
+        {
+            await webView.ExecuteScriptAsync(PresvUtil.semantic_check());
+        }
+
         //全シミュレーションの実行可否
         void SimAllCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
