@@ -48,6 +48,23 @@ namespace wb2br_proto
             //control.KeyDown +=
         }
 
+        //ComboのURL再読み込み
+        public static RoutedCommand UrlReload = new RoutedCommand();
+
+        void UrlReloadCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = _urlEntities.Count<UrlEntity>() > 0 &&
+                urlComboBox.SelectedIndex < (_urlEntities.Count<UrlEntity>() - 1) &&
+                IsWebViewValid() && !_isNavigating;
+        }
+
+        void UrlReloadExecute(object target, ExecutedRoutedEventArgs e)
+        {
+            int crIndex = urlComboBox.SelectedIndex;
+            string crUrl = _urlEntities[crIndex].pageUrl;
+            webView.CoreWebView2.Navigate(crUrl);
+        }
+
         //次のURLに進む
         public static RoutedCommand UrlNext = new RoutedCommand();
 

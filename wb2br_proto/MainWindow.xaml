@@ -19,6 +19,7 @@
         <CommandBinding Command="NavigationCommands.BrowseStop" Executed="BrowseStopCmdExecuted" CanExecute="BrowseStopCmdCanExecute"/>
         <CommandBinding Command="NavigationCommands.GoToPage" Executed="GoToPageCmdExecuted" CanExecute="GoToPageCmdCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.LoadFile}" Executed="LoadFileCmdExecuted" CanExecute="LoadFileCmdCanExecute"/>
+        <CommandBinding Command="{x:Static local:MainWindow.UrlReload}" Executed="UrlReloadExecute" CanExecute="UrlReloadCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.UrlComboBoxChanged}" Executed="UrlComboBoxChangedExecute" CanExecute="UrlComboBoxChangedCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.UrlPrev}" Executed="UrlPrevExecuted" CanExecute="UrlPrevCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.UrlNext}" Executed="UrlNextExecuted" CanExecute="UrlNextCanExecute"/>
@@ -43,6 +44,9 @@
             </Button>
             <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.UrlNext}">
                 <Image Source="{StaticResource ComboNextIcon}" Width="24"/>
+            </Button>
+            <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.UrlReload}">
+                <Image Source="{StaticResource UrlReloadIcon}" Width="24"/>
             </Button>
             <ComboBox x:Name="urlComboBox"
                       SelectedValuePath="pageId"

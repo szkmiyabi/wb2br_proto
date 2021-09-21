@@ -114,7 +114,7 @@
   <ItemGroup>
     <Resource Include="Images\cmb-next.png" />
     <Resource Include="Images\cmb-prev.png" />
-    <Resource Include="Images\cmd-reload.png" />
+    <Resource Include="Images\cmb-reload.png" />
     <Resource Include="Images\ico-file.png" />
   </ItemGroup>
   <ItemGroup>
