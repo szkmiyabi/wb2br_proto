@@ -116,10 +116,13 @@ namespace wb2br_proto
             url.Text = crUrl;
         }
 
+        //CssCutシミュレーションの実行可否
         async void SimCssCutExecute(object target, ExecutedRoutedEventArgs e)
         {
-            await webView.ExecuteScriptAsync("alert('hi')");
+            await webView.ExecuteScriptAsync(PresvUtil.css_cut());
         }
+
+        //CssCutシミュレーションの実行処理
         void SimCssCutCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = IsWebViewValid() && !_isNavigating;
