@@ -26,7 +26,9 @@
     
     <DockPanel>
         <DockPanel DockPanel.Dock="Top">
-            <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.LoadFile}">Load</Button>
+            <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.LoadFile}">
+                <Image Source="Images/ico-file.png" Height="24"/>
+            </Button>
             <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.UrlPrev}">Prev</Button>
             <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.UrlNext}">Next</Button>
             <ComboBox x:Name="urlComboBox"
@@ -67,8 +69,8 @@
                     <ColumnDefinition Width="35"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                
-                <Button>cc</Button>
+
+                <Button>a</Button>
             </Grid>
         </DockPanel>
         <Grid x:Name="Layout">
