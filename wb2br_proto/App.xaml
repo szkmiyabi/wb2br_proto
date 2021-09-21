@@ -18,5 +18,9 @@
         <BitmapImage x:Key="SuperFocusIcon" UriSource="Images/ico-superfocus.png"/>
         <BitmapImage x:Key="AriaAttrIcon" UriSource="Images/ico-aria.png"/>
         <BitmapImage x:Key="JsRunIcon" UriSource="Images/ico-js.png"/>
+        <BitmapImage x:Key="BrReloadIcon" UriSource="Images/br-reload.png"/>
+        <BitmapImage x:Key="BrNextIcon" UriSource="Images/br-next.png"/>
+        <BitmapImage x:Key="BrPrevIcon" UriSource="Images/br-prev.png"/>
+        <BitmapImage x:Key="BrStopIcon" UriSource="Images/br-stop.png"/>
     </Application.Resources>
 </Application>

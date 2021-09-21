@@ -112,7 +112,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\cmb-next.png" />
     <Resource Include="Images\cmb-prev.png" />
     <Resource Include="Images\cmb-reload.png" />
     <Resource Include="Images\ico-file.png" />
@@ -128,6 +127,17 @@
     <Resource Include="Images\ico-newwin.png" />
     <Resource Include="Images\ico-struct.png" />
     <Resource Include="Images\ico-superfocus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\br-next.png" />
+    <Resource Include="Images\br-prev.png" />
+    <Resource Include="Images\br-reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cmb-next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\br-stop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.902.49\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.902.49\build\Microsoft.Web.WebView2.targets')" />

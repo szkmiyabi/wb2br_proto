@@ -58,10 +58,18 @@
                 </i:Interaction.Triggers>
             </ComboBox>
             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-                <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseBack">Back</Button>
-                <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseForward">Forword</Button>
-                <Button DockPanel.Dock="Left" Command="NavigationCommands.Refresh">Refresh</Button>
-                <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseStop">Stop</Button>
+                <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseBack">
+                    <Image Source="{StaticResource BrPrevIcon}" Width="24"/>
+                </Button>
+                <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseForward">
+                    <Image Source="{StaticResource BrNextIcon}" Width="24"/>
+                </Button>
+                <Button DockPanel.Dock="Left" Command="NavigationCommands.Refresh">
+                    <Image Source="{StaticResource BrReloadIcon}" Width="24"/>
+                </Button>
+                <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseStop">
+                    <Image Source="{StaticResource BrStopIcon}" Width="24"/>
+                </Button>
             </StackPanel>
             <TextBox x:Name="url" Text="{Binding ElementName=webView,Path=Source,Mode=TwoWay}">
                 <TextBox.InputBindings>
