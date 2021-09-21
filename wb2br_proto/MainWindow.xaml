@@ -58,7 +58,6 @@
                 </i:Interaction.Triggers>
             </ComboBox>
             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-                <Button DockPanel.Dock="Left" Command="NavigationCommands.GoToPage" CommandParameter="{Binding ElementName=url,Path=Text}">Go</Button>
                 <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseBack">Back</Button>
                 <Button DockPanel.Dock="Left" Command="NavigationCommands.BrowseForward">Forword</Button>
                 <Button DockPanel.Dock="Left" Command="NavigationCommands.Refresh">Refresh</Button>
