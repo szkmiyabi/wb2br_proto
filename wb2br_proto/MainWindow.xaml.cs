@@ -29,12 +29,6 @@ namespace wb2br_proto
 
         private ObservableCollection<UrlEntity> _urlEntities = new ObservableCollection<UrlEntity>();
 
-        public static RoutedCommand LoadFile = new RoutedCommand();
-        public static RoutedCommand UrlComboBoxChanged = new RoutedCommand();
-        public static RoutedCommand UrlNext = new RoutedCommand();
-        public static RoutedCommand UrlPrev = new RoutedCommand();
-        public static RoutedCommand SimCssCut = new RoutedCommand();
-        public static RoutedCommand SimImageAlt = new RoutedCommand();
 
         //コンストラクタ
         public MainWindow()
@@ -54,14 +48,15 @@ namespace wb2br_proto
             //control.KeyDown +=
         }
 
-        //Nextボタンの実行可否
+        //次のURLに進む
+        public static RoutedCommand UrlNext = new RoutedCommand();
+
         void UrlNextCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = _urlEntities.Count<UrlEntity>() > 0 && 
                 urlComboBox.SelectedIndex < (_urlEntities.Count<UrlEntity>() - 1);
         }
 
-        //Nextボタンの実行処理
         void UrlNextExecuted(object target, ExecutedRoutedEventArgs e)
         {
             int crIndex = urlComboBox.SelectedIndex;
@@ -69,13 +64,14 @@ namespace wb2br_proto
             urlComboBox.SelectedIndex = crIndex;
         }
 
-        //Prevボタンの実行可否
+        //前のURLに戻る
+        public static RoutedCommand UrlPrev = new RoutedCommand();
+
         void UrlPrevCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = _urlEntities.Count<UrlEntity>() > 0 && urlComboBox.SelectedIndex > 0;
         }
 
-        //Prevボタンの実行処理
         void UrlPrevExecuted(object target, ExecutedRoutedEventArgs e)
         {
             int crIndex = urlComboBox.SelectedIndex;
@@ -83,13 +79,14 @@ namespace wb2br_proto
             urlComboBox.SelectedIndex = crIndex;
         }
 
-        //Loadボタンの実行可否
+        //Urlファイル読込
+        public static RoutedCommand LoadFile = new RoutedCommand();
+
         void LoadFileCmdCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
         }
 
-        //Loadボタンの実行処理
         void LoadFileCmdExecuted(object target, ExecutedRoutedEventArgs e)
         {
             _urlEntities = new ObservableCollection<UrlEntity>();
@@ -99,13 +96,14 @@ namespace wb2br_proto
             urlComboBox.SelectedIndex = 0;
         }
 
-        //UrlComboBoxChangedアクションの実行可否
+        //UrlComboBoxChangedイベントの処理
+        public static RoutedCommand UrlComboBoxChanged = new RoutedCommand();
+
         void UrlComboBoxChangedCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = _urlEntities.Count<UrlEntity>() > 0;
         }
 
-        //UrlComboBoxChangedアクションの実行処理
         async void UrlComboBoxChangedExecute(object target, ExecutedRoutedEventArgs e)
         {
             //UrlComboBoxが初期化された場合はリターン
@@ -118,13 +116,9 @@ namespace wb2br_proto
         }
 
 
-        //全シミュレーションの実行可否
-        void SimAllCanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = IsWebViewValid() && !_isNavigating;
-        }
-
         //CssCutシミュレーション
+        public static RoutedCommand SimCssCut = new RoutedCommand();
+
         async void SimCssCutExecute(object target, ExecutedRoutedEventArgs e)
         {
             await webView.ExecuteScriptAsync(PresvUtil.css_cut());
@@ -132,10 +126,18 @@ namespace wb2br_proto
 
 
         //ImageAltシミュレーション
+        public static RoutedCommand SimImageAlt = new RoutedCommand();
+
         async void SimImageAltExecute(object sender, ExecutedRoutedEventArgs e)
         {
             await webView.ExecuteScriptAsync(PresvUtil.image_alt());
 
+        }
+
+        //全シミュレーションの実行可否
+        void SimAllCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = IsWebViewValid() && !_isNavigating;
         }
 
         //webViewインスタンスの有効判定

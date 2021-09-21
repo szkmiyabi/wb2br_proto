@@ -178,5 +178,37 @@ namespace wb2br_proto
                 }
             ";
         }
+
+        public static string target_attr()
+        {
+            return @"
+                var ats = document.getElementsByTagName(""a"");
+                for(var i=0; i<ats.length; i++) {
+                    var atag = ats.item(i);
+                    var ataghtml = atag.outerHTML;
+                    ataghtml = _text_clean(ataghtml);
+                    if(_target_attr_check(ataghtml)) {
+                        var target_vl = atag.getAttribute(""target"");
+                        var span_id = ""bkm-target-attr-span-"" + i;
+                        var span_html = (target_vl === """") ? ""target属性有:(空)"" : ""target属性有:"" + target_vl;
+                        var span_css = ""padding-right:5px;color:#fff;font-size:12px;padding:1px;background:#008000;border-radius:5px;"";
+                        var span = '<span id=""' + span_id + '"" style=""' + span_css + '"">' + span_html + '</span>';
+                        atag.insertAdjacentHTML(""beforebegin"", span);
+                    }
+                }
+                function _target_attr_check(str) {
+                    var pt = new RegExp('target="".*?""');
+                    if(pt.test(str)) return true;
+                    else return false;
+                }
+                function _text_clean(str) {
+                    var ret = """";
+                    ret = str.replace(new RegExp(""^ +"", ""mg""), """");
+                    ret = ret.replace(new RegExp(""\\t+"", ""mg""), """");
+                    ret = ret.replace(new RegExp(""(\\r\\n|\\r|\\n)"", ""mg""), """");
+                    return str;
+                }
+            ";
+        }
     }
 }
