@@ -29,6 +29,7 @@
         <CommandBinding Command="{x:Static local:MainWindow.SimLangAttr}" Executed="SimLangAttrExecute" CanExecute="SimAllCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.SimLabelTitleAttr}" Executed="SimLabelTitleAttrExecute" CanExecute="SimAllCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.SimDocLink}" Executed="SimDocLinkExecute" CanExecute="SimAllCanExecute"/>
+        <CommandBinding Command="{x:Static local:MainWindow.SimSuperFocus}" Executed="SimSuperFocusExecute" CanExecute="SimAllCanExecute"/>
     </Window.CommandBindings>
     
     <DockPanel>
@@ -109,7 +110,7 @@
                     <Image Source="{StaticResource StructIcon}"/>
                 </Button>
                 
-                <Button Grid.Column="7">
+                <Button Grid.Column="7" Command="{x:Static local:MainWindow.SimSuperFocus}">
                     <Image Source="{StaticResource SuperFocusIcon}"/>
                 </Button>
                 

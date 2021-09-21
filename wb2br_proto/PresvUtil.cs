@@ -816,5 +816,17 @@ namespace wb2br_proto
                 }
             ";
         }
+
+        public static string super_focus()
+        {
+            return @"
+                var hd = document.getElementsByTagName(""head"")[0];
+                var elm = document.createElement(""style"");
+                elm.setAttribute(""type"", ""text/css"");
+                elm.id = ""bkmk-super-focus-style-tag"";
+                elm.textContent = ""*:focus,*:active {opacity: 0.2;filter:contrast(300%);}"";
+                hd.appendChild(elm);
+            ";
+        }
     }
 }

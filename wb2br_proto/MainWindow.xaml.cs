@@ -173,6 +173,14 @@ namespace wb2br_proto
             await webView.ExecuteScriptAsync(PresvUtil.document_link());
         }
 
+        //superfocusシミュレーション
+        public static RoutedCommand SimSuperFocus = new RoutedCommand();
+
+        async void SimSuperFocusExecute(object sender, ExecutedRoutedEventArgs e)
+        {
+            await webView.ExecuteScriptAsync(PresvUtil.super_focus());
+        }
+
         //全シミュレーションの実行可否
         void SimAllCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
