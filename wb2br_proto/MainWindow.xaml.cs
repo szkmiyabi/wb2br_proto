@@ -165,6 +165,14 @@ namespace wb2br_proto
             await webView.ExecuteScriptAsync(PresvUtil.tag_form_and_title_attr());
         }
 
+        //文書リンクシミュレーション
+        public static RoutedCommand SimDocLink = new RoutedCommand();
+
+        async void SimDocLinkExecute(object sender, ExecutedRoutedEventArgs e)
+        {
+            await webView.ExecuteScriptAsync(PresvUtil.document_link());
+        }
+
         //全シミュレーションの実行可否
         void SimAllCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
