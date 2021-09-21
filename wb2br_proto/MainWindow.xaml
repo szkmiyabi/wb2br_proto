@@ -27,6 +27,7 @@
         <CommandBinding Command="{x:Static local:MainWindow.SimTargetBlank}" Executed="SimTargetBlankExecute" CanExecute="SimAllCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.SimStruct}" Executed="SimStructExecute" CanExecute="SimAllCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.SimLangAttr}" Executed="SimLangAttrExecute" CanExecute="SimAllCanExecute"/>
+        <CommandBinding Command="{x:Static local:MainWindow.SimLabelTitleAttr}" Executed="SimLabelTitleAttrExecute" CanExecute="SimAllCanExecute"/>
     </Window.CommandBindings>
     
     <DockPanel>
@@ -99,7 +100,7 @@
                     <Image Source="{StaticResource LangAttrIcon}"/>
                 </Button>
                 
-                <Button Grid.Column="5">
+                <Button Grid.Column="5" Command="{x:Static local:MainWindow.SimLabelTitleAttr}">
                     <Image Source="{StaticResource LabelTitleIcon}"/>
                 </Button> 
                 

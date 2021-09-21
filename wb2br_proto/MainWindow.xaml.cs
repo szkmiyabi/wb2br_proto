@@ -157,6 +157,14 @@ namespace wb2br_proto
             await webView.ExecuteScriptAsync(PresvUtil.lang_attr());
         }
 
+        //label/titleシミュレーション
+        public static RoutedCommand SimLabelTitleAttr = new RoutedCommand();
+
+        async void SimLabelTitleAttrExecute(object sender, ExecutedRoutedEventArgs e)
+        {
+            await webView.ExecuteScriptAsync(PresvUtil.tag_form_and_title_attr());
+        }
+
         //全シミュレーションの実行可否
         void SimAllCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
