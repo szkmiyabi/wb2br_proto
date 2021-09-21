@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:wb2br_proto"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <BitmapImage x:Key="LoadButtonIcon" UriSource="Images/ico-file.png"/>
+        <BitmapImage x:Key="ComboPrevIcon" UriSource="Images/cmb-prev.png"/>
+        <BitmapImage x:Key="ComboNextIcon" UriSource="Images/cmb-next.png"/>
+        <BitmapImage x:Key="ComboReloadIcon" UriSource="Images/cmb-reload.png"/>
     </Application.Resources>
 </Application>

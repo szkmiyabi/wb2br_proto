@@ -27,10 +27,14 @@
     <DockPanel>
         <DockPanel DockPanel.Dock="Top">
             <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.LoadFile}">
-                <Image Source="Images/ico-file.png" Height="24"/>
+                <Image Source="{StaticResource LoadButtonIcon}" Width="24"/>
             </Button>
-            <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.UrlPrev}">Prev</Button>
-            <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.UrlNext}">Next</Button>
+            <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.UrlPrev}">
+                <Image Source="{StaticResource ComboPrevIcon}" Width="24"/>
+            </Button>
+            <Button DockPanel.Dock="Left" Command="{x:Static local:MainWindow.UrlNext}">
+                <Image Source="{StaticResource ComboNextIcon}" Width="24"/>
+            </Button>
             <ComboBox x:Name="urlComboBox"
                       SelectedValuePath="pageId"
                       DisplayMemberPath="pageId">
