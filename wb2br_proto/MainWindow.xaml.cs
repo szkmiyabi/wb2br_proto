@@ -34,6 +34,7 @@ namespace wb2br_proto
         public static RoutedCommand UrlNext = new RoutedCommand();
         public static RoutedCommand UrlPrev = new RoutedCommand();
         public static RoutedCommand SimCssCut = new RoutedCommand();
+        public static RoutedCommand SimImageAlt = new RoutedCommand();
 
         //コンストラクタ
         public MainWindow()
@@ -116,16 +117,25 @@ namespace wb2br_proto
             url.Text = crUrl;
         }
 
-        //CssCutシミュレーションの実行可否
+
+        //全シミュレーションの実行可否
+        void SimAllCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = IsWebViewValid() && !_isNavigating;
+        }
+
+        //CssCutシミュレーション
         async void SimCssCutExecute(object target, ExecutedRoutedEventArgs e)
         {
             await webView.ExecuteScriptAsync(PresvUtil.css_cut());
         }
 
-        //CssCutシミュレーションの実行処理
-        void SimCssCutCanExecute(object sender, CanExecuteRoutedEventArgs e)
+
+        //ImageAltシミュレーション
+        async void SimImageAltExecute(object sender, ExecutedRoutedEventArgs e)
         {
-            e.CanExecute = IsWebViewValid() && !_isNavigating;
+            await webView.ExecuteScriptAsync(PresvUtil.image_alt());
+
         }
 
         //webViewインスタンスの有効判定

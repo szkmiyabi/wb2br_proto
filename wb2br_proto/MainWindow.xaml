@@ -22,7 +22,8 @@
         <CommandBinding Command="{x:Static local:MainWindow.UrlComboBoxChanged}" Executed="UrlComboBoxChangedExecute" CanExecute="UrlComboBoxChangedCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.UrlPrev}" Executed="UrlPrevExecuted" CanExecute="UrlPrevCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.UrlNext}" Executed="UrlNextExecuted" CanExecute="UrlNextCanExecute"/>
-        <CommandBinding Command="{x:Static local:MainWindow.SimCssCut}" Executed="SimCssCutExecute" CanExecute="SimCssCutCanExecute"/>
+        <CommandBinding Command="{x:Static local:MainWindow.SimCssCut}" Executed="SimCssCutExecute" CanExecute="SimAllCanExecute"/>
+        <CommandBinding Command="{x:Static local:MainWindow.SimImageAlt}" Executed="SimImageAltExecute" CanExecute="SimAllCanExecute"/>
     </Window.CommandBindings>
     
     <DockPanel>
@@ -79,7 +80,7 @@
                     <Image Source="{StaticResource CssCutIcon}"/>
                 </Button>
                 
-                <Button Grid.Column="1">
+                <Button Grid.Column="1" Command="{x:Static local:MainWindow.SimImageAlt}">
                     <Image Source="{StaticResource ImageAltIcon}"/>
                 </Button>
                 
