@@ -7,6 +7,15 @@
         <BitmapImage x:Key="LoadButtonIcon" UriSource="Images/ico-file.png"/>
         <BitmapImage x:Key="ComboPrevIcon" UriSource="Images/cmb-prev.png"/>
         <BitmapImage x:Key="ComboNextIcon" UriSource="Images/cmb-next.png"/>
-        <BitmapImage x:Key="ComboReloadIcon" UriSource="Images/cmb-reload.png"/>
+        <BitmapImage x:Key="CssCutIcon" UriSource="Images/ico-csscut.png"/>
+        <BitmapImage x:Key="ImageAltIcon" UriSource="Images/ico-imgalt.png"/>
+        <BitmapImage x:Key="TargetBlankIcon" UriSource="Images/ico-newwin.png"/>
+        <BitmapImage x:Key="DocLinkIcon" UriSource="Images/ico-doc.png"/>
+        <BitmapImage x:Key="LangAttrIcon" UriSource="Images/ico-lang.png"/>
+        <BitmapImage x:Key="LabelTitleIcon" UriSource="Images/ico-label.png"/>
+        <BitmapImage x:Key="StructIcon" UriSource="Images/ico-struct.png"/>
+        <BitmapImage x:Key="SuperFocusIcon" UriSource="Images/ico-superfocus.png"/>
+        <BitmapImage x:Key="AriaAttrIcon" UriSource="Images/ico-aria.png"/>
+        <BitmapImage x:Key="JsRunIcon" UriSource="Images/ico-js.png"/>
     </Application.Resources>
 </Application>

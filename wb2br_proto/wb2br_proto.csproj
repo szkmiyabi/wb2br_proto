@@ -116,6 +116,18 @@
     <Resource Include="Images\cmd-reload.png" />
     <Resource Include="Images\ico-file.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ico-aria.png" />
+    <Resource Include="Images\ico-csscut.png" />
+    <Resource Include="Images\ico-doc.png" />
+    <Resource Include="Images\ico-imgalt.png" />
+    <Resource Include="Images\ico-js.png" />
+    <Resource Include="Images\ico-label.png" />
+    <Resource Include="Images\ico-lang.png" />
+    <Resource Include="Images\ico-newwin.png" />
+    <Resource Include="Images\ico-struct.png" />
+    <Resource Include="Images\ico-superfocus.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.902.49\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.902.49\build\Microsoft.Web.WebView2.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

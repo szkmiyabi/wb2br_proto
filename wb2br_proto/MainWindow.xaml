@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:wb2br_proto"
         mc:Ignorable="d"
         x:Name="MyWindow"
-        Title="MainWindow" Height="750" Width="1200">
+        Title="Webview2Browser Prototype" Height="750" Width="1200">
     <Window.Resources>
     </Window.Resources>
     
@@ -61,20 +61,59 @@
         <DockPanel DockPanel.Dock="Top">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
-                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition Width="28"/>
+                    <ColumnDefinition Width="28"/>
+                    <ColumnDefinition Width="28"/>
+                    <ColumnDefinition Width="28"/>
+                    <ColumnDefinition Width="28"/>
+                    <ColumnDefinition Width="28"/>
+                    <ColumnDefinition Width="28"/>
+                    <ColumnDefinition Width="28"/>
+                    <ColumnDefinition Width="28"/>
+                    <ColumnDefinition Width="28"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button>a</Button>
+                <Button Grid.Column="0">
+                    <Image Source="{StaticResource CssCutIcon}"/>
+                </Button>
+                
+                <Button Grid.Column="1">
+                    <Image Source="{StaticResource ImageAltIcon}"/>
+                </Button>
+                
+                <Button Grid.Column="2">
+                    <Image Source="{StaticResource TargetBlankIcon}"/>
+                </Button>
+                
+                <Button Grid.Column="3">
+                    <Image Source="{StaticResource DocLinkIcon}"/>
+                </Button>
+                
+                <Button Grid.Column="4">
+                    <Image Source="{StaticResource LangAttrIcon}"/>
+                </Button>
+                
+                <Button Grid.Column="5">
+                    <Image Source="{StaticResource LabelTitleIcon}"/>
+                </Button> 
+                
+                <Button Grid.Column="6">
+                    <Image Source="{StaticResource StructIcon}"/>
+                </Button>
+                
+                <Button Grid.Column="7">
+                    <Image Source="{StaticResource SuperFocusIcon}"/>
+                </Button>
+                
+                <Button Grid.Column="8">
+                    <Image Source="{StaticResource AriaAttrIcon}"/>
+                </Button>
+                
+                <Button Grid.Column="9">
+                    <Image Source="{StaticResource JsRunIcon}"/>
+                </Button> 
+
             </Grid>
         </DockPanel>
         <Grid x:Name="Layout">
