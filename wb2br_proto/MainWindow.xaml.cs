@@ -33,6 +33,7 @@ namespace wb2br_proto
         public static RoutedCommand UrlComboBoxChanged = new RoutedCommand();
         public static RoutedCommand UrlNext = new RoutedCommand();
         public static RoutedCommand UrlPrev = new RoutedCommand();
+        public static RoutedCommand SimCssCut = new RoutedCommand();
 
         //コンストラクタ
         public MainWindow()
@@ -113,6 +114,15 @@ namespace wb2br_proto
             await webView.EnsureCoreWebView2Async();
             webView.CoreWebView2.Navigate(crUrl);
             url.Text = crUrl;
+        }
+
+        async void SimCssCutExecute(object target, ExecutedRoutedEventArgs e)
+        {
+            await webView.ExecuteScriptAsync("alert('hi')");
+        }
+        void SimCssCutCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = IsWebViewValid() && !_isNavigating;
         }
 
         //webViewインスタンスの有効判定
