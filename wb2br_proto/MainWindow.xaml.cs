@@ -54,7 +54,6 @@ namespace wb2br_proto
         void UrlReloadCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = _urlEntities.Count<UrlEntity>() > 0 &&
-                urlComboBox.SelectedIndex < (_urlEntities.Count<UrlEntity>() - 1) &&
                 IsWebViewValid() && !_isNavigating;
         }
 
