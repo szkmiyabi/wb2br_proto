@@ -27,6 +27,9 @@ namespace wb2br_proto
         //メンバ
         bool _isNavigating = false;
 
+        bool _isUserAgentCustomized = false;
+        string _defaultUserAgent = "";
+
         private ObservableCollection<UrlEntity> _urlEntities = new ObservableCollection<UrlEntity>();
 
         //ブラウザセッティング
@@ -229,12 +232,25 @@ namespace wb2br_proto
 
         void SetUserAgentExecute(object target, ExecutedRoutedEventArgs e)
         {
-            var dialog = new TextInputDialog(
-                title: "SetUserAgent",
-                description: "Enter UserAgent");
-            if (dialog.ShowDialog() == true)
+            //var dialog = new TextInputDialog(
+            //    title: "SetUserAgent",
+            //    description: "Enter UserAgent");
+            //if (dialog.ShowDialog() == true)
+            //{
+            //    WebViewSettings.UserAgent = dialog.Input.Text;
+            //}
+            if(_isUserAgentCustomized == false)
             {
-                WebViewSettings.UserAgent = dialog.Input.Text;
+                _defaultUserAgent = WebViewSettings.UserAgent;
+                WebViewSettings.UserAgent = CommonValue.GetUserAgentIOS();
+                _isUserAgentCustomized = true;
+                webView.Reload();
+            }
+            else
+            {
+                WebViewSettings.UserAgent = _defaultUserAgent;
+                _isUserAgentCustomized = false;
+                webView.Reload();
             }
         }
 
