@@ -221,6 +221,20 @@ namespace wb2br_proto
             await webView.ExecuteScriptAsync(PresvUtil.wai_aria_attr());
         }
 
+        //Run-JSシミュレーション
+        public static RoutedCommand SimRunJS = new RoutedCommand();
+
+        async void SimRunJSExecute(object sender, ExecutedRoutedEventArgs e)
+        {
+            var dialog = new TextInputDialog(
+                title: "スクリプト実行",
+                description: "Javascriptコードを貼り付けてください。");
+            if (dialog.ShowDialog() == true)
+            {
+                await webView.ExecuteScriptAsync(dialog.Input.Text);
+            }
+        }
+
         //全シミュレーションの実行可否
         void SimAllCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -232,13 +246,6 @@ namespace wb2br_proto
 
         void SetUserAgentExecute(object target, ExecutedRoutedEventArgs e)
         {
-            //var dialog = new TextInputDialog(
-            //    title: "SetUserAgent",
-            //    description: "Enter UserAgent");
-            //if (dialog.ShowDialog() == true)
-            //{
-            //    WebViewSettings.UserAgent = dialog.Input.Text;
-            //}
             if(_isUserAgentCustomized == false)
             {
                 _defaultUserAgent = WebViewSettings.UserAgent;

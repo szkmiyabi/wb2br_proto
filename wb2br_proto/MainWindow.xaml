@@ -32,6 +32,7 @@
         <CommandBinding Command="{x:Static local:MainWindow.SimDocLink}" Executed="SimDocLinkExecute" CanExecute="SimAllCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.SimSuperFocus}" Executed="SimSuperFocusExecute" CanExecute="SimAllCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.SimAriaAttr}" Executed="SimAriaAttrExecute" CanExecute="SimAllCanExecute"/>
+        <CommandBinding Command="{x:Static local:MainWindow.SimRunJS}" Executed="SimRunJSExecute" CanExecute="SimAllCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.SetUserAgent}" Executed="SetUserAgentExecute" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
     </Window.CommandBindings>
     
@@ -132,11 +133,11 @@
                     <Image Source="{StaticResource AriaAttrIcon}"/>
                 </Button>
                 
-                <Button Grid.Column="9">
+                <Button Grid.Column="9" Command="{x:Static local:MainWindow.SimRunJS}">
                     <Image Source="{StaticResource JsRunIcon}"/>
                 </Button>
                 <Button Grid.Column="10" Command="{x:Static local:MainWindow.SetUserAgent}">
-                    U
+                    <Image Source="{StaticResource UserAgentIcon}"/>
                 </Button> 
 
             </Grid>

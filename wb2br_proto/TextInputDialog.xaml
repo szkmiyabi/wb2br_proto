@@ -19,9 +19,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="Description" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"/>
-        <TextBox x:Name="Input" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"/>
-        <Button Click="ok_Clicked" IsDefault="True" Grid.Column="1" Grid.Row="2" Width="60">OK</Button>
-        <Button IsCancel="True" Grid.Column="2" Grid.Row="2" Width="60">Cancel</Button>
+        <TextBlock x:Name="Description" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Margin="5,0,5,0"/>
+        <TextBox x:Name="Input" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Margin="5"/>
+        <Button Click="ok_Clicked" IsDefault="True" Grid.Column="1" Grid.Row="2" Width="60" Margin="0,0,3,5">OK</Button>
+        <Button IsCancel="True" Grid.Column="2" Grid.Row="2" Width="60" Margin="0,0,5,5">Cancel</Button>
     </Grid>
 </Window>

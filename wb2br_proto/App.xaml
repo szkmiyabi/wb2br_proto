@@ -22,5 +22,6 @@
         <BitmapImage x:Key="BrNextIcon" UriSource="Images/br-next.png"/>
         <BitmapImage x:Key="BrPrevIcon" UriSource="Images/br-prev.png"/>
         <BitmapImage x:Key="BrStopIcon" UriSource="Images/br-stop.png"/>
+        <BitmapImage x:Key="UserAgentIcon" UriSource="Images/ico-uachange.png"/>
     </Application.Resources>
 </Application>
