@@ -29,6 +29,19 @@ namespace wb2br_proto
 
         private ObservableCollection<UrlEntity> _urlEntities = new ObservableCollection<UrlEntity>();
 
+        //ブラウザセッティング
+        CoreWebView2Settings _webViewSettings;
+        CoreWebView2Settings WebViewSettings
+        {
+            get
+            {
+                if(_webViewSettings == null && webView?.CoreWebView2 != null)
+                {
+                    _webViewSettings = webView.CoreWebView2.Settings;
+                }
+                return _webViewSettings;
+            }
+        }
 
         //コンストラクタ
         public MainWindow()
@@ -210,6 +223,28 @@ namespace wb2br_proto
         {
             e.CanExecute = IsWebViewValid() && !_isNavigating;
         }
+
+        //UserAgent変更シミュレーション
+        public static RoutedCommand SetUserAgent = new RoutedCommand();
+
+        void SetUserAgentExecute(object target, ExecutedRoutedEventArgs e)
+        {
+            var dialog = new TextInputDialog(
+                title: "SetUserAgent",
+                description: "Enter UserAgent");
+            if (dialog.ShowDialog() == true)
+            {
+                WebViewSettings.UserAgent = dialog.Input.Text;
+            }
+        }
+
+
+        //ブラウザ設定系コマンド実行可否
+        void CoreWebView2RequiringCmdsCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = IsWebViewValid();
+        }
+
 
         //webViewインスタンスの有効判定
         bool IsWebViewValid()
