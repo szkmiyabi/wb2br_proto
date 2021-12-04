@@ -74,6 +74,10 @@
     <Compile Include="NewWindow.xaml.cs">
       <DependentUpon>NewWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="SettingsDialog.xaml.cs">
+      <DependentUpon>SettingsDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TextInputDialog.xaml.cs">
       <DependentUpon>TextInputDialog.xaml</DependentUpon>
     </Compile>
@@ -90,6 +94,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="NewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

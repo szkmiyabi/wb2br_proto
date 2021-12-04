@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Xml.Serialization;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.Wpf;
 
@@ -31,6 +32,13 @@ namespace wb2br_proto
         string _defaultUserAgent = "";
 
         private ObservableCollection<UrlEntity> _urlEntities = new ObservableCollection<UrlEntity>();
+
+        private Settings appSettings;
+        private string settings_filename;
+        private string iePath;
+        private string ffPath;
+        private string gcPath;
+        private string etcBrowserPath;
 
         //ブラウザセッティング
         CoreWebView2Settings _webViewSettings;
@@ -51,6 +59,12 @@ namespace wb2br_proto
         {
             InitializeComponent();
             AttachControlEventHandlers(webView);
+            
+            settings_filename = System.IO.Path.GetDirectoryName(
+                System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\settings.config";
+            LoadAppSettings();
+
+
         }
 
         //初期ロード時イベント紐付け（ラッパー）
@@ -62,6 +76,30 @@ namespace wb2br_proto
             control.NavigationCompleted += WebView_NavigationCompleted;
             //control.CoreWebView2InitializationCompleted +=
             //control.KeyDown +=
+        }
+
+        //アプリセッティング読込
+        void LoadAppSettings()
+        {
+            try
+            {
+                appSettings = new Settings();
+                XmlSerializer xsz = new XmlSerializer(typeof(Settings));
+                StreamReader sr = new StreamReader(
+                    settings_filename,
+                    new System.Text.UTF8Encoding(false)
+                );
+                appSettings = (Settings)xsz.Deserialize(sr);
+                sr.Close();
+
+                iePath = appSettings.iePath;
+                ffPath = appSettings.ffPath;
+                gcPath = appSettings.gcPath;
+                etcBrowserPath = appSettings.etcBrowserPath;
+            }
+            catch(Exception ex)
+            {
+            }
         }
 
         //ComboのURL再読み込み
@@ -371,6 +409,7 @@ namespace wb2br_proto
 
             webView.CoreWebView2.Navigate(uri.ToString());
         }
+
 
     }
 }
