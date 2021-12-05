@@ -151,10 +151,18 @@
                     <Image Source="{StaticResource UserAgentIcon}"/>
                 </Button>
 
-                <Button Grid.Column="12" Content="IE" Command="{x:Static local:MainWindow.BrowseByIE}"/>
-                <Button Grid.Column="13" Content="FF" Command="{x:Static local:MainWindow.BrowseByFirefox}"/>
-                <Button Grid.Column="14" Content="CH" Command="{x:Static local:MainWindow.BrowseByChrome}"/>
-                <Button Grid.Column="15" Content="ETC" Command="{x:Static local:MainWindow.BrowseByEtcBrowser}"/>
+                <Button Grid.Column="12" Command="{x:Static local:MainWindow.BrowseByIE}">
+                    <Image Source="{StaticResource BrowseIEIcon}"/>
+                </Button>
+                <Button Grid.Column="13" Command="{x:Static local:MainWindow.BrowseByFirefox}">
+                    <Image Source="{StaticResource BrowseFirefoxIcon}"/>
+                </Button>
+                <Button Grid.Column="14" Command="{x:Static local:MainWindow.BrowseByChrome}">
+                    <Image Source="{StaticResource BrowseChromeIcon}"/>
+                </Button>
+                <Button Grid.Column="15" Command="{x:Static local:MainWindow.BrowseByEtcBrowser}">
+                    <Image Source="{StaticResource BrowseEtcBrowserIcon}"/>
+                </Button>
                 <Button Grid.Column="17" Command="{x:Static local:MainWindow.LoadSettingDialog}">
                     <Image Source="{StaticResource SettingsIcon}"/>
                 </Button>

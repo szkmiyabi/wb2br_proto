@@ -168,6 +168,12 @@
   <ItemGroup>
     <Resource Include="Images\ico-settings.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ico-chrome.png" />
+    <Resource Include="Images\ico-etcbrowser.png" />
+    <Resource Include="Images\ico-firefox.png" />
+    <Resource Include="Images\ico-ie.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Web.WebView2.1.0.902.49\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.902.49\build\Microsoft.Web.WebView2.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

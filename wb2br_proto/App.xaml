@@ -24,5 +24,9 @@
         <BitmapImage x:Key="BrStopIcon" UriSource="Images/br-stop.png"/>
         <BitmapImage x:Key="UserAgentIcon" UriSource="Images/ico-uachange.png"/>
         <BitmapImage x:Key="SettingsIcon" UriSource="Images/ico-settings.png"/>
+        <BitmapImage x:Key="BrowseIEIcon" UriSource="Images/ico-ie.png"/>
+        <BitmapImage x:Key="BrowseFirefoxIcon" UriSource="Images/ico-firefox.png"/>
+        <BitmapImage x:Key="BrowseChromeIcon" UriSource="Images/ico-chrome.png"/>
+        <BitmapImage x:Key="BrowseEtcBrowserIcon" UriSource="Images/ico-etcbrowser.png"/>
     </Application.Resources>
 </Application>
