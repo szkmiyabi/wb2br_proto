@@ -408,13 +408,21 @@ namespace wb2br_proto
             webView.CoreWebView2.Navigate(uri.ToString());
         }
 
-        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        //環境設定ダイアログ
+        public static RoutedCommand LoadSettingDialog = new RoutedCommand();
+        void LoadSettingDialogCanExecuted(Object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+        void LoadSettingDialogExecute(object target, ExecutedRoutedEventArgs e)
         {
             SettingsDialog sdg = new SettingsDialog();
             sdg.ShowDialog();
         }
 
-        private void IEViewButton_Click(object sender, RoutedEventArgs e)
+        //IEで開く
+        public static RoutedCommand BrowseByIE = new RoutedCommand();
+        void BrowseByIEExecute(object target, ExecutedRoutedEventArgs e)
         {
             try
             {
@@ -425,5 +433,12 @@ namespace wb2br_proto
             {
             }
         }
+
+        void BrowseByAnyCanExecuted(Object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = IsWebViewValid() && !_isNavigating;
+        }
+ 
+
     }
 }
