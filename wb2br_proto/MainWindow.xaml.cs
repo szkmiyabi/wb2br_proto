@@ -63,8 +63,6 @@ namespace wb2br_proto
             settings_filename = System.IO.Path.GetDirectoryName(
                 System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\settings.config";
             LoadAppSettings();
-
-
         }
 
         //初期ロード時イベント紐付け（ラッパー）
@@ -410,6 +408,10 @@ namespace wb2br_proto
             webView.CoreWebView2.Navigate(uri.ToString());
         }
 
-
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsDialog sdg = new SettingsDialog();
+            sdg.ShowDialog();
+        }
     }
 }

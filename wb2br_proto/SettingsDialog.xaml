@@ -18,7 +18,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="IE実行パス" Grid.Column="0"/>
                     <TextBox x:Name="IEPathText" Grid.Column="1"/>
-                    <Button Content="自動取得" Grid.Column="2"/>
+                    <Button Content="自動取得" Grid.Column="2" x:Name="ieDefaultButton" Click="ieDefaultButton_Click"/>
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -28,7 +28,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="Firefox実行パス" Grid.Column="0"/>
                     <TextBox x:Name="FirefoxPathText" Grid.Column="1"/>
-                    <Button Content="自動取得" Grid.Column="2"/>
+                    <Button Content="自動取得" Grid.Column="2" x:Name="ffDefaultButton" Click="ffDefaultButton_Click"/>
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -38,7 +38,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="Chrome実行パス" Grid.Column="0"/>
                     <TextBox x:Name="ChromePathText" Grid.Column="1"/>
-                    <Button Content="自動取得" Grid.Column="2"/>
+                    <Button Content="自動取得" Grid.Column="2" x:Name="gcDefaultButton" Click="gcDefaultButton_Click"/>
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -47,8 +47,7 @@
                         <ColumnDefinition Width="64"/>
                     </Grid.ColumnDefinitions>
                     <Label Content="任意ブラウザ実行パス" Grid.Column="0"/>
-                    <TextBox x:Name="WtcBrowserPathText" Grid.Column="1"/>
-                    <Button Content="自動取得" Grid.Column="2"/>
+                    <TextBox x:Name="EtcBrowserPathText" Grid.Column="1"/>
                 </Grid>
             </StackPanel>
         </DockPanel>
@@ -61,9 +60,9 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="OK" Grid.Column="1"/>
-                    <Button Content="キャンセル" Grid.Column="2"/>
-                    <Button Content="設定消去" Grid.Column="3"/>
+                    <Button Content="OK" Grid.Column="1" x:Name="OKButton" Click="OKButton_Click"/>
+                    <Button Content="キャンセル" Grid.Column="2" x:Name="CancelButton" Click="CancelButton_Click"/>
+                    <Button Content="設定消去" Grid.Column="3" x:Name="DeleteSettingButton" Click="DeleteSettingButton_Click"/>
                 </Grid>
             </StackPanel>
         </DockPanel>
