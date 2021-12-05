@@ -20,10 +20,11 @@ namespace wb2br_proto
     /// <summary>
     /// NewWindow.xaml の相互作用ロジック
     /// </summary>
-    public partial class NewWindow : Window
+    public partial class HtmlView : Window
     {
 
         bool _isNavigating = false;
+        string _sourceUrl = "";
 
         //ブラウザセッティング
         CoreWebView2Settings _webViewSettings;
@@ -39,11 +40,12 @@ namespace wb2br_proto
             }
         }
 
-        public NewWindow()
+        public HtmlView(string sourceUrl)
         {
             InitializeComponent();
             AttachControlEventHandlers(webView);
-
+            _sourceUrl = "view-source:" + sourceUrl;
+            ViewHtmlSourceInitialize();
         }
 
         //初期ロード時イベント紐付け（ラッパー）
@@ -77,6 +79,30 @@ namespace wb2br_proto
             CommandManager.InvalidateRequerySuggested();
         }
 
+        //初期ロード
+        async void ViewHtmlSourceInitialize()
+        {
+            await webView.EnsureCoreWebView2Async();
+
+            Uri uri =new Uri(_sourceUrl);
+            webView.CoreWebView2.Navigate(uri.ToString());
+            srcViewUrl.Text = _sourceUrl;
+        }
+
+        //更新ロード
+        void GoToPageCmdCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = webView != null && !_isNavigating;
+        }
+
+        async void GoToPageCmdExecuted(object target, ExecutedRoutedEventArgs e)
+        {
+            await webView.EnsureCoreWebView2Async();
+
+            var rawUrl = (string)e.Parameter;
+            Uri uri = new Uri(rawUrl);
+            webView.CoreWebView2.Navigate("view-source:" + uri.ToString());
+        }
 
     }
 }

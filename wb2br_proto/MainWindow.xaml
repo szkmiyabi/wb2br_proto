@@ -39,6 +39,7 @@
         <CommandBinding Command="{x:Static local:MainWindow.BrowseByFirefox}" Executed="BrowseByFirefoxExecute" CanExecute="BrowseByAnyCanExecuted"/>
         <CommandBinding Command="{x:Static local:MainWindow.BrowseByChrome}" Executed="BrowseByChromeExecute" CanExecute="BrowseByAnyCanExecuted"/>
         <CommandBinding Command="{x:Static local:MainWindow.BrowseByEtcBrowser}" Executed="BrowseByEtcBrowserExecute" CanExecute="BrowseByAnyCanExecuted"/>
+        <CommandBinding Command="{x:Static local:MainWindow.ViewHtmlSource}" Executed="ViewHtmlSourceExecute" CanExecute="BrowseByAnyCanExecuted"/>
     </Window.CommandBindings>
     
     <DockPanel>
@@ -106,6 +107,8 @@
                     <ColumnDefinition Width="28"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="28"/>
+                    <ColumnDefinition Width="28"/>
+
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="0" Command="{x:Static local:MainWindow.SimCssCut}">
@@ -166,6 +169,7 @@
                 <Button Grid.Column="17" Command="{x:Static local:MainWindow.LoadSettingDialog}">
                     <Image Source="{StaticResource SettingsIcon}"/>
                 </Button>
+                <Button Grid.Column ="18" Content="ソ" Command="{x:Static local:MainWindow.ViewHtmlSource}"/>
 
             </Grid>
         </DockPanel>

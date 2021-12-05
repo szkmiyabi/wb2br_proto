@@ -71,8 +71,8 @@
     </ApplicationDefinition>
     <Compile Include="CommonValue.cs" />
     <Compile Include="FileRepository.cs" />
-    <Compile Include="NewWindow.xaml.cs">
-      <DependentUpon>NewWindow.xaml</DependentUpon>
+    <Compile Include="HtmlView.xaml.cs">
+      <DependentUpon>HtmlView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="SettingsDialog.xaml.cs">
@@ -93,7 +93,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NewWindow.xaml">
+    <Page Include="HtmlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

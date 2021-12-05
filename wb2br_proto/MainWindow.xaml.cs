@@ -420,6 +420,13 @@ namespace wb2br_proto
             sdg.ShowDialog();
         }
 
+        //HTMLソースコードの表示
+        public static RoutedCommand ViewHtmlSource = new RoutedCommand();
+        void ViewHtmlSourceExecute(Object target, ExecutedRoutedEventArgs e)
+        {
+            HtmlView nw = new HtmlView(url.Text);
+            nw.Show();
+        }
 
         //IEで開く
         public static RoutedCommand BrowseByIE = new RoutedCommand();
@@ -481,7 +488,6 @@ namespace wb2br_proto
         {
             e.CanExecute = IsWebViewValid() && !_isNavigating;
         }
- 
 
     }
 }
