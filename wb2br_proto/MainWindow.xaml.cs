@@ -420,6 +420,7 @@ namespace wb2br_proto
             sdg.ShowDialog();
         }
 
+
         //IEで開く
         public static RoutedCommand BrowseByIE = new RoutedCommand();
         void BrowseByIEExecute(object target, ExecutedRoutedEventArgs e)
@@ -428,6 +429,48 @@ namespace wb2br_proto
             {
                 string burl = url.Text;
                 System.Diagnostics.Process.Start(iePath, " " + burl);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        //Firefoxで開く
+        public static RoutedCommand BrowseByFirefox = new RoutedCommand();
+        void BrowseByFirefoxExecute(object target, ExecutedRoutedEventArgs e)
+        {
+            try
+            {
+                string burl = url.Text;
+                System.Diagnostics.Process.Start(ffPath, "-new-tab " + burl);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        //Chromeで開く
+        public static RoutedCommand BrowseByChrome = new RoutedCommand();
+        void BrowseByChromeExecute(object target, ExecutedRoutedEventArgs e)
+        {
+            try
+            {
+                string burl = url.Text;
+                System.Diagnostics.Process.Start(gcPath, " " + burl);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        //任意のブラウザで開く
+        public static RoutedCommand BrowseByEtcBrowser = new RoutedCommand();
+        void BrowseByEtcBrowserExecute(object target, ExecutedRoutedEventArgs e)
+        {
+            try
+            {
+                string burl = url.Text;
+                System.Diagnostics.Process.Start(etcBrowserPath, " " + burl);
             }
             catch (Exception ex)
             {

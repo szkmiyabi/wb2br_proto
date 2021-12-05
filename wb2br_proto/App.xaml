@@ -23,5 +23,6 @@
         <BitmapImage x:Key="BrPrevIcon" UriSource="Images/br-prev.png"/>
         <BitmapImage x:Key="BrStopIcon" UriSource="Images/br-stop.png"/>
         <BitmapImage x:Key="UserAgentIcon" UriSource="Images/ico-uachange.png"/>
+        <BitmapImage x:Key="SettingsIcon" UriSource="Images/ico-settings.png"/>
     </Application.Resources>
 </Application>

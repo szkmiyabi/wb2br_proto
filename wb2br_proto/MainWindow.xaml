@@ -36,6 +36,9 @@
         <CommandBinding Command="{x:Static local:MainWindow.SetUserAgent}" Executed="SetUserAgentExecute" CanExecute="CoreWebView2RequiringCmdsCanExecute"/>
         <CommandBinding Command="{x:Static local:MainWindow.LoadSettingDialog}" Executed="LoadSettingDialogExecute" CanExecute="LoadSettingDialogCanExecuted"/>
         <CommandBinding Command="{x:Static local:MainWindow.BrowseByIE}" Executed="BrowseByIEExecute" CanExecute="BrowseByAnyCanExecuted"/>
+        <CommandBinding Command="{x:Static local:MainWindow.BrowseByFirefox}" Executed="BrowseByFirefoxExecute" CanExecute="BrowseByAnyCanExecuted"/>
+        <CommandBinding Command="{x:Static local:MainWindow.BrowseByChrome}" Executed="BrowseByChromeExecute" CanExecute="BrowseByAnyCanExecuted"/>
+        <CommandBinding Command="{x:Static local:MainWindow.BrowseByEtcBrowser}" Executed="BrowseByEtcBrowserExecute" CanExecute="BrowseByAnyCanExecuted"/>
     </Window.CommandBindings>
     
     <DockPanel>
@@ -96,10 +99,13 @@
                     <ColumnDefinition Width="28"/>
                     <ColumnDefinition Width="28"/>
                     <ColumnDefinition Width="28"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="28"/>
                     <ColumnDefinition Width="28"/>
                     <ColumnDefinition Width="28"/>
                     <ColumnDefinition Width="28"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="28"/>
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="0" Command="{x:Static local:MainWindow.SimCssCut}">
@@ -144,9 +150,14 @@
                 <Button Grid.Column="10" Command="{x:Static local:MainWindow.SetUserAgent}">
                     <Image Source="{StaticResource UserAgentIcon}"/>
                 </Button>
-                
-                <Button Grid.Column="12" Content="説" Command="{x:Static local:MainWindow.LoadSettingDialog}"/>
-                <Button Grid.Column="13" Content="IE" Command="{x:Static local:MainWindow.BrowseByIE}"/>
+
+                <Button Grid.Column="12" Content="IE" Command="{x:Static local:MainWindow.BrowseByIE}"/>
+                <Button Grid.Column="13" Content="FF" Command="{x:Static local:MainWindow.BrowseByFirefox}"/>
+                <Button Grid.Column="14" Content="CH" Command="{x:Static local:MainWindow.BrowseByChrome}"/>
+                <Button Grid.Column="15" Content="ETC" Command="{x:Static local:MainWindow.BrowseByEtcBrowser}"/>
+                <Button Grid.Column="17" Command="{x:Static local:MainWindow.LoadSettingDialog}">
+                    <Image Source="{StaticResource SettingsIcon}"/>
+                </Button>
 
             </Grid>
         </DockPanel>
