@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wb2br_proto"
         mc:Ignorable="d"
-        Title="環境設定" Height="190" Width="600">
+        Title="環境設定" Height="199.104" Width="600">
     
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" Margin="5">

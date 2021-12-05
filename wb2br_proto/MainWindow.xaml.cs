@@ -413,5 +413,17 @@ namespace wb2br_proto
             SettingsDialog sdg = new SettingsDialog();
             sdg.ShowDialog();
         }
+
+        private void IEViewButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string burl = url.Text;
+                System.Diagnostics.Process.Start(iePath, " " + burl);
+            }
+            catch (Exception ex)
+            {
+            }
+        }
     }
 }
